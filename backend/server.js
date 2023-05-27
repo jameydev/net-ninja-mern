@@ -15,6 +15,9 @@ app.use((req, res, next) => {
     next();
 });
 
+// Route handlers
+app.use('/api/workouts', workoutRoutes);
+
 // Connect to DB
 mongoose.connect(process.env.MONGO_URI)
         .then(() => {
@@ -28,6 +31,4 @@ mongoose.connect(process.env.MONGO_URI)
             console.error(err.red);
         });
 
-// Route handlers
-app.use('/api/workouts', workoutRoutes);
 
